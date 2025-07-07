@@ -68,16 +68,18 @@ The solution ensures **zero human dependency**, **no data mix-up**, and enhanced
 python3 -m venv venv
 source venv/bin/activate  # macOS/Linux
 venv\Scripts\activate     # Windows
-
+```
 ### 📦 Step 2: Install Dependencies
 
 ```bash
 pip install -r requirements.txt
-
+```
 ### ▶️ Step 3: Run API
 ```bash
 uvicorn dct_fast_api:app --reload
+```
 
+---
 
 ## 📤 API Endpoints
 
@@ -102,6 +104,8 @@ Uploads a stego-image and extracts the embedded patient ID.
 **Returns:**  
 Extracted patient ID string.
 
+---
+
 ## 📁 Directory Structure
 
 ```bash
@@ -114,6 +118,9 @@ Extracted patient ID string.
 ├── Decoded-message/        # Extracted text
 ├── Images/                 # Input images (optional)
 ├── screenshots/            # Screenshots for demonstration
+```
+
+---
 
 ## 📦 Dependencies
 
@@ -126,10 +133,14 @@ Extracted patient ID string.
 ├── pillow       
 ├── scipy       
 ├── python-multipart 
+```
 
 ** Installing dependencies **
 ```bash
 pip install -r requirements.txt
+```
+
+---
 
 ## 🔐 Security & Use Case
 
