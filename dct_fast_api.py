@@ -12,7 +12,7 @@ from dct_claude_quant import ImprovedDCTSteganography
 
 app = FastAPI()
 
-steganography = ImprovedDCTSteganography(alpha=0.1)
+steganography = ImprovedDCTSteganography(alpha=0.012)
 
 
 # Set up logging
@@ -47,9 +47,11 @@ async def embed_patient_id(file: UploadFile = File(...), patient_id: str = Form(
 
         filename = f"embedded_{uuid.uuid4().hex}.png"
         output_path = os.path.join(SAVE_DIR, filename)
-        cv2.imwrite(output_path, embedded_image)
 
+        cv2.imwrite(output_path, embedded_image)
+        logging.info(f"🧬 Embedding message: {patient_id} into {file.filename}")
         return {"download_url": f"http://localhost:8000/download/{filename}"}
+        # return FileResponse(output_path, media_type="image/png", filename=filename)
 
     except Exception as e:
         logging.error(f"❌ Internal Server Error: {str(e)}", exc_info=True)
